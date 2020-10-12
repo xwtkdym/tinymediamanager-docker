@@ -1,13 +1,15 @@
 tinymediamanager_service:
-    image: romancin/tinymediamanager:latest
+    image: xwtkdym/tinymediamanager:latest
     container_name: tinymediamanager
     ports:
-      - "5803:5800"
+      - "5800:5800"
+      - "5900:5900"
     environment:
       - USER_ID=0
       - GROUP_ID=0
       - TZ=Europe/Madrid
       - VNC_PASSWORD=password
     volumes:
-      - "/share/Container/tinymediamanager:/config:rw"
-      - "/share/Container/tinymediamanager/media:/media:rw"
+      - "./config:/config:rw"
+      - "/opt/jellyfin/jellyfin/movies/:/media/movies"
+      - "/opt/jellyfin/jellyfin/tvseries/:/media/tvseries"
