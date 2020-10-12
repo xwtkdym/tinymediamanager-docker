@@ -3,6 +3,10 @@
 #
 FROM jlesage/baseimage-gui:alpine-3.12-glibc
 
+COPY ./locale.md /locale.md
+ENV LANG=en_US.UTF-8 \
+    LANGUAGE=en_US.UTF-8
+
 # Define software versions.
 ARG JAVAJRE_VERSION=8.265.01.1
 ARG TMM_VERSION=4.0.4
